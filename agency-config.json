@@ -4,26 +4,15 @@
     "logoUrl": "https://cdn.jsdelivr.net/gh/kristi114/ghl-customizer@main/yachtway-logo.png",
     "faviconUrl": "https://cdn.jsdelivr.net/gh/kristi114/ghl-customizer@main/yachtway-favicon.ico",
     "primaryColor": "#4b0ea3",
-    "primaryColorHover": "#36076d",
-    "primaryColorLight": "#f3edfb",
-    "accentColor": "#6430b0",
-    "textDark": "#22222d",
-    "textMedium": "#575760",
-    "textLight": "#8c8c92",
-    "borderColor": "#dcdcde",
-    "bgPrimary": "#ffffff",
-    "bgSecondary": "#f9fafb",
-    "bgTertiary": "#f6f6f7",
-    "fontFamily": "'Figtree', 'Helvetica Neue', Arial, sans-serif",
-    "fontFamilyHeading": "'Poppins', 'Helvetica Neue', Arial, sans-serif",
-    "borderRadius": "8px",
-    "dashboardTitle": "YachtWay Partner Portal"
+    "dashboardTitle": "YachtWay Partner Portal",
+    "fontHeading": "'Poppins', sans-serif",
+    "fontBody": "'Figtree', sans-serif"
   },
   "headerButtons": [
     { "label": "Conversations", "icon": "chat", "url": "/conversations" },
     { "label": "Pipelines", "icon": "pipeline", "url": "/pipelines" },
     { "label": "Calendar", "icon": "calendar", "url": "/calendar" },
-    { "label": "Support", "icon": "help", "url": "https://support.yachtway.com" }
+    { "label": "Support", "icon": "help", "url": "https://support.yachtway.com", "external": true }
   ],
   "userMenu": [
     { "label": "Profile", "url": "/profile" },
