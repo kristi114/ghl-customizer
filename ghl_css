@@ -1,0 +1,603 @@
+/*
+ * ============================================================
+ *  YachtWay — GHL Custom Stylesheet
+ *  Inject via: Settings → Custom CSS in GoHighLevel
+ * ============================================================
+ *
+ *  HOW TO USE
+ *  ----------
+ *  1. Host this file at a public HTTPS URL (GitHub + jsDelivr works).
+ *  2. In GHL go to Settings → Custom CSS and add:
+ *       @import url('https://cdn.jsdelivr.net/gh/YOUR_REPO@main/yachtway-ghl.css');
+ *     OR paste the contents of this file directly.
+ *
+ *  EDITING GUIDE
+ *  -------------
+ *  All brand tokens live in the :root block below.
+ *  Change values there — everything else picks them up automatically.
+ *  Only touch the sections further down if you need fine-grained overrides.
+ *
+ * ============================================================
+ */
+
+
+/* ============================================================
+   1. BRAND TOKENS  ← Edit these to retheme everything
+   ============================================================ */
+
+:root {
+
+  /* --- Primary palette (dark purple) --- */
+  --yw-brand-900:     #2B0033;
+  --yw-brand-800:     #260754;   
+  --yw-brand-700:     #4B0EA3;    /* ← dominant brand color */
+
+  /* --- Secondary palette (lighter purple) --- */
+  --yw-brand-600:     #6430B0;
+  --yw-brand-500:     #7E528E;
+
+  /* --- Gradient (buttons, interactive highlights) ---
+       Gradient A: 254deg, #8729FA → #2B0075
+       Gradient B: 304deg, #8334DA → #4409D7              */
+  --yw-gradient-a:    linear-gradient(254.25deg, #8729FA 0%, #2B0075 100%);
+  --yw-gradient-b:    linear-gradient(304.46deg, #8334DA 0%, #4409D7 100%);
+
+  /* --- Neutral / surface --- */
+  --yw-white:         #FFFFFF;
+  --yw-gray-10:       #F9FAFB;
+  --yw-gray-25:       #F6F6F7;
+  --yw-gray-50:       #F1F1F2;
+  --yw-gray-100:      #DCDCDE;
+  --yw-gray-200:      #C1C1C4;
+  --yw-gray-300:      #A6A6AB;
+
+  /* --- Page background gradient --- */
+  --yw-bg-gradient:   linear-gradient(180deg, #FFFFFF 0%, #F9F9F9 100%);
+
+  /* --- Status --- */
+  --yw-success:       #32D583;
+  --yw-warning:       #FDB022;
+  --yw-error:         #F97066;
+
+  /* --- Typography --- */
+  --yw-font-heading:  'Poppins', sans-serif;
+  --yw-font-body:     'Figtree', sans-serif;
+
+  /* --- Sizing --- */
+  --yw-radius-sm:     6px;
+  --yw-radius-md:     10px;
+  --yw-radius-lg:     14px;
+  --yw-radius-pill:   999px;
+
+  /* --- Shadows --- */
+  --yw-shadow-card:   0 1px 4px rgba(38, 7, 84, 0.08), 0 0 0 0.5px rgba(38, 7, 84, 0.06);
+  --yw-shadow-btn:    0 2px 8px rgba(135, 41, 250, 0.28);
+  --yw-shadow-modal:  0 8px 32px rgba(38, 7, 84, 0.18);
+
+}
+
+
+/* ============================================================
+   2. FONT IMPORTS
+   ============================================================
+   Poppins = headings. Figtree = body.
+   Remove or swap these @import lines if you host fonts elsewhere.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Figtree:wght@400;500;600&display=swap');
+
+
+/* ============================================================
+   3. GLOBAL BASE OVERRIDES
+   ============================================================ */
+
+/* Page background */
+body,
+.hl-app-wrapper,
+#app {
+  font-family: var(--yw-font-body) !important;
+  font-size: 15px !important;           /* min 12px per brand rules */
+  color: #1A1A1A !important;
+}
+
+/* All headings → Poppins */
+h1, h2, h3, h4, h5, h6,
+.hl-page-title,
+.hl-section-title,
+.hl-card-title,
+[class*="title"],
+[class*="heading"] {
+  font-family: var(--yw-font-heading) !important;
+  font-weight: 600 !important;
+  color: var(--yw-brand-800) !important;
+}
+
+/* Body / UI copy → Figtree */
+p, span, label, input, textarea, select,
+td, th, li, a,
+.hl-label,
+.hl-input,
+[class*="text"],
+[class*="label"] {
+  font-family: var(--yw-font-body) !important;
+}
+
+/* Minimum font size enforcement (brand rule: never below 16px) */
+* {
+  font-size: max(var(--yw-min-font, 16px), inherit);
+}
+
+
+/* ============================================================
+   4. HEADER / TOP NAV
+   ============================================================ */
+
+/* Main header bar */
+.hl-header,
+.navbar,
+[class*="header-bar"],
+[class*="top-nav"] {
+  border-bottom: none !important;
+  box-shadow: 0 2px 12px rgba(38, 7, 84, 0.2) !important;
+}
+
+/* Header text, icons */
+.hl-header *,
+.navbar *,
+[class*="header-bar"] * {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Logo area */
+.hl-header-logo img,
+.navbar-brand img,
+[class*="logo"] img {
+  max-height: 32px !important;
+  width: auto !important;
+  object-fit: contain !important;
+}
+
+/* Nav links in header */
+.hl-header-nav a,
+.navbar-nav a,
+[class*="header-nav"] a {
+  font-family: var(--yw-font-body) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  text-decoration: none !important;
+  padding: 6px 12px !important;
+  border-radius: var(--yw-radius-sm) !important;
+  transition: background 0.15s ease, color 0.15s ease !important;
+}
+
+.hl-header-nav a:hover,
+[class*="header-nav"] a:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #FFFFFF !important;
+}
+
+
+/* ============================================================
+   5. SIDEBAR / LEFT NAV
+   ============================================================ */
+
+.hl-sidebar,
+.sidebar,
+[class*="side-nav"],
+[class*="sidebar"] {
+  background: var(--yw-brand-900) !important;
+  border-right: none !important;
+}
+
+/* Sidebar nav links */
+.hl-sidebar a,
+.sidebar a,
+[class*="side-nav"] a,
+[class*="sidebar"] a {
+  font-family: var(--yw-font-body) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: rgba(255, 255, 255, 0.75) !important;
+  border-radius: var(--yw-radius-sm) !important;
+  transition: background 0.15s ease, color 0.15s ease !important;
+}
+
+/* Active / hover state */
+.hl-sidebar a:hover,
+.hl-sidebar a.active,
+.hl-sidebar a.router-link-active,
+[class*="sidebar"] a:hover,
+[class*="sidebar"] a.active {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #FFFFFF !important;
+}
+
+/* Active indicator stripe */
+.hl-sidebar a.active::before,
+[class*="sidebar"] a.active::before {
+  content: '' !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 3px !important;
+  height: 60% !important;
+  background: var(--yw-brand-600) !important;
+  border-radius: 0 2px 2px 0 !important;
+}
+
+/* Sidebar section labels */
+.hl-sidebar [class*="section-label"],
+.hl-sidebar [class*="group-title"],
+[class*="sidebar"] [class*="section-label"] {
+  font-family: var(--yw-font-body) !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+
+/* ============================================================
+   6. BUTTONS
+   ============================================================ */
+
+/* Primary button */
+.btn-primary,
+.hl-btn-primary,
+button[class*="primary"],
+[class*="btn"][class*="primary"] {
+  background: var(--yw-gradient-a) !important;
+  border: none !important;
+  border-radius: 4px !important;
+  color: #FFFFFF !important;
+  font-family: var(--yw-font-body) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  padding: 10px 20px !important;
+  box-shadow: var(--yw-shadow-btn) !important;
+  transition: opacity 0.15s ease, transform 0.1s ease !important;
+  cursor: pointer !important;
+}
+
+.btn-primary:hover,
+[class*="btn"][class*="primary"]:hover {
+  opacity: 0.88 !important;
+  transform: translateY(-1px) !important;
+}
+
+.btn-primary:active,
+[class*="btn"][class*="primary"]:active {
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+}
+
+/* Secondary / outline button */
+.btn-secondary,
+.hl-btn-secondary,
+button[class*="secondary"],
+[class*="btn"][class*="secondary"],
+.btn-outline,
+[class*="btn-outline"] {
+  background: transparent !important;
+  border: 1.5px solid var(--yw-brand-700) !important;
+  border-radius: var(--yw-radius-md) !important;
+  color: var(--yw-brand-700) !important;
+  font-family: var(--yw-font-body) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  padding: 9px 20px !important;
+  transition: background 0.15s ease, color 0.15s ease !important;
+  cursor: pointer !important;
+}
+
+.btn-secondary:hover,
+[class*="btn"][class*="secondary"]:hover {
+  background: var(--yw-brand-700) !important;
+  color: #FFFFFF !important;
+}
+
+/* Danger / destructive button */
+.btn-danger,
+button[class*="danger"],
+[class*="btn"][class*="danger"] {
+  background: var(--yw-error) !important;
+  border: none !important;
+  border-radius: var(--yw-radius-md) !important;
+  color: #FFFFFF !important;
+  font-family: var(--yw-font-body) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+}
+
+/* Save button (fixed / floating) */
+.hl-save-btn,
+[class*="save-btn"],
+[class*="save-button"] {
+  background: var(--yw-gradient-a) !important;
+  border: none !important;
+  border-radius: var(--yw-radius-md) !important;
+  color: #FFFFFF !important;
+  font-family: var(--yw-font-body) !important;
+  font-weight: 600 !important;
+  box-shadow: var(--yw-shadow-btn) !important;
+}
+
+
+/* ============================================================
+   7. CARDS & PANELS
+   ============================================================ */
+
+.hl-card,
+.card,
+[class*="panel"],
+[class*="-card"] {
+  background: var(--yw-white);
+  border: 0.5px solid var(--yw-gray-100) !important;
+  border-radius: var(--yw-radius-lg) !important;
+  box-shadow: var(--yw-shadow-card) !important;
+}
+
+/* Card headers */
+.hl-card-header,
+.card-header,
+[class*="card-header"] {
+  font-family: var(--yw-font-heading) !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: var(--yw-brand-700) !important;
+  border-bottom: 0.5px solid var(--yw-gray-50) !important;
+}
+
+
+/* ============================================================
+   8. FORM INPUTS
+   ============================================================ */
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+textarea,
+select,
+.hl-input,
+[class*="form-input"],
+[class*="form-control"] {
+  font-family: var(--yw-font-body) !important;
+  font-size: 14px !important;
+  border: 1px solid var(--yw-gray-200) !important;
+  border-radius: var(--yw-radius-md) !important;
+  background: var(--yw-white) !important;
+  color: #1A1A1A !important;
+  padding: 9px 12px !important;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
+  outline: none !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+[class*="form-input"]:focus,
+[class*="form-control"]:focus {
+  border-color: var(--yw-brand-600) !important;
+  box-shadow: 0 0 0 3px rgba(100, 48, 176, 0.12) !important;
+}
+
+/* Input labels */
+label,
+.hl-label,
+[class*="form-label"] {
+  font-family: var(--yw-font-body) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #3A3A3A !important;
+  margin-bottom: 4px !important;
+}
+
+
+/* ============================================================
+   9. TABLES
+   ============================================================ */
+
+table,
+.hl-table,
+[class*="data-table"] {
+  font-family: var(--yw-font-body) !important;
+  font-size: 14px !important;
+  border-collapse: collapse !important;
+  width: 100% !important;
+}
+
+thead th,
+.hl-table thead th,
+[class*="data-table"] thead th {
+  font-family: var(--yw-font-body) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.07em !important;
+  text-transform: uppercase !important;
+  color: var(--yw-gray-300) !important;
+  background: var(--yw-gray-10) !important;
+  border-bottom: 1px solid var(--yw-gray-100) !important;
+  padding: 10px 14px !important;
+}
+
+tbody td {
+  padding: 10px 14px !important;
+  border-bottom: 0.5px solid var(--yw-gray-50) !important;
+  color: #1A1A1A !important;
+}
+
+tbody tr:hover td {
+  background: var(--yw-gray-10) !important;
+}
+
+
+/* ============================================================
+   10. BADGES & STATUS PILLS
+   ============================================================ */
+
+/* Generic badge */
+.badge,
+[class*="badge"],
+[class*="status-pill"],
+[class*="tag"] {
+  font-family: var(--yw-font-body) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  border-radius: var(--yw-radius-pill) !important;
+  padding: 3px 9px !important;
+  letter-spacing: 0.02em !important;
+}
+
+/* Success / active */
+[class*="badge"][class*="success"],
+[class*="badge"][class*="active"],
+[class*="status"][class*="active"] {
+  background: rgba(50, 213, 131, 0.12) !important;
+  color: #0F7A45 !important;
+}
+
+/* Warning / pending */
+[class*="badge"][class*="warning"],
+[class*="badge"][class*="pending"],
+[class*="status"][class*="pending"] {
+  background: rgba(253, 176, 34, 0.14) !important;
+  color: #7A5000 !important;
+}
+
+/* Error / cancelled */
+[class*="badge"][class*="error"],
+[class*="badge"][class*="danger"],
+[class*="badge"][class*="cancelled"] {
+  background: rgba(249, 112, 102, 0.12) !important;
+  color: #8A2A1E !important;
+}
+
+/* Brand / info */
+[class*="badge"][class*="info"],
+[class*="badge"][class*="primary"] {
+  background: rgba(75, 14, 163, 0.1) !important;
+  color: var(--yw-brand-700) !important;
+}
+
+
+/* ============================================================
+   11. MODALS & DIALOGS
+   ============================================================ */
+
+.modal,
+[class*="modal"],
+[class*="dialog"] {
+  border-radius: var(--yw-radius-lg) !important;
+  box-shadow: var(--yw-shadow-modal) !important;
+}
+
+.modal-header,
+[class*="modal-header"],
+[class*="dialog-header"] {
+  font-family: var(--yw-font-heading) !important;
+  font-size: 17px !important;
+  font-weight: 600 !important;
+  color: var(--yw-brand-700) !important;
+  border-bottom: 0.5px solid var(--yw-gray-100) !important;
+}
+
+/* Backdrop */
+.modal-backdrop,
+[class*="modal-overlay"],
+[class*="dialog-overlay"] {
+  background: rgba(38, 7, 84, 0.45) !important;
+  backdrop-filter: blur(3px) !important;
+}
+
+
+/* ============================================================
+   12. LINKS
+   ============================================================ */
+
+a {
+  color: var(--yw-brand-600) !important;
+  text-decoration: none !important;
+  transition: color 0.15s ease !important;
+}
+
+a:hover {
+  color: var(--yw-brand-700) !important;
+  text-decoration: underline !important;
+}
+
+
+/* ============================================================
+   13. SCROLLBARS  (Webkit / Chrome / Edge)
+   ============================================================ */
+
+::-webkit-scrollbar {
+  width: 5px !important;
+  height: 5px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--yw-gray-200) !important;
+  border-radius: var(--yw-radius-pill) !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--yw-brand-500) !important;
+}
+
+
+/* ============================================================
+   14. PIPELINE / KANBAN
+   ============================================================ */
+
+/* Column headers */
+[class*="pipeline-column"] > [class*="header"],
+[class*="stage-header"],
+[class*="kanban-column"] > [class*="title"] {
+  font-family: var(--yw-font-heading) !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--yw-brand-700) !important;
+}
+
+/* Cards within pipeline */
+[class*="opportunity-card"],
+[class*="pipeline-card"],
+[class*="deal-card"] {
+  background: var(--yw-white) !important;
+  border-radius: var(--yw-radius-md) !important;
+  border: 0.5px solid var(--yw-gray-100) !important;
+  box-shadow: var(--yw-shadow-card) !important;
+  font-family: var(--yw-font-body) !important;
+  font-size: 13px !important;
+  transition: box-shadow 0.15s ease, transform 0.1s ease !important;
+}
+
+[class*="opportunity-card"]:hover,
+[class*="pipeline-card"]:hover {
+  box-shadow: var(--yw-shadow-modal) !important;
+  transform: translateY(-1px) !important;
+}
+
+
+/* ============================================================
+   15. NOTIFICATIONS / TOASTS
+   ============================================================ */
+
+[class*="toast"],
+[class*="notification"],
+[class*="alert"] {
+  font-family: var(--yw-font-body) !important;
+  font-size: 14px !important;
+  border-radius: var(--yw-radius-md) !important;
+  border-left: 3px solid var(--yw-brand-600) !important;
+}
