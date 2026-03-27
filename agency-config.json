@@ -1,10 +1,10 @@
 {
   "agencyId": "yachtway",
   "branding": {
-    "logoUrl": "https://cdn.jsdelivr.net/gh/kristi114/ghl-customizer@main/yachtway-logo.png",
-    "faviconUrl": "https://cdn.jsdelivr.net/gh/kristi114/ghl-customizer@main/yachtway-favicon.ico",
+    "logoUrl": "https://github.com/kristi114/ghl-customizer/blob/32e6000cdd75f79f832ac9b942aea71ceb6aed5d/Logo_White.svg",
+    "faviconUrl": "https://yachtway.com/favicon-32x32.png",
     "primaryColor": "#4b0ea3",
-    "dashboardTitle": "YachtWay Partner Portal",
+    "dashboardTitle": "Welcome to YachtWay",
     "fontHeading": "'Poppins', sans-serif",
     "fontBody": "'Figtree', sans-serif"
   },
