@@ -112,6 +112,9 @@ aside#sidebar-v2 nav a {
   font-size: 13.5px !important;
   font-weight: 500 !important;
   border-radius: var(--yw-r-sm) !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
   text-decoration: none !important;
   opacity: 1 !important;              /* override GHL's opacity-70 */
   transition: background 0.12s, color 0.12s !important;
@@ -173,15 +176,15 @@ header.hl_header.--agency {
 /* Override the inline --n-color, --n-border, etc. vars on the element */
 .n-button--primary-type {
   --n-color:           var(--yw-brand) !important;
-  --n-color-hover:     var(--yw-brand-hover) !important;
-  --n-color-pressed:   var(--yw-brand) !important;
-  --n-color-focus:     var(--yw-brand-hover) !important;
+  --n-color-hover:     var(--yw-brand) !important;
+  --n-color-pressed:   var(--yw-brand-hover) !important;
+  --n-color-focus:     var(--yw-brand) !important;
   --n-color-disabled:  var(--yw-brand) !important;
   --n-ripple-color:    var(--yw-brand) !important;
   --n-border:          1px solid var(--yw-brand) !important;
-  --n-border-hover:    1px solid var(--yw-brand-hover) !important;
-  --n-border-pressed:  1px solid var(--yw-brand) !important;
-  --n-border-focus:    1px solid var(--yw-brand-hover) !important;
+  --n-border-hover:    1px solid var(--yw-brand) !important;
+  --n-border-pressed:  1px solid var(--yw-brand-hover) !important;
+  --n-border-focus:    1px solid var(--yw-brand) !important;
   --n-border-disabled: 1px solid var(--yw-brand) !important;
   --n-border-radius:   var(--yw-r) !important;
   background-color: var(--yw-brand) !important;
@@ -190,9 +193,13 @@ header.hl_header.--agency {
   font-weight: 600 !important;
 }
 .n-button--primary-type:hover {
+  background-color: var(--yw-brand) !important;
+  border-color: var(--yw-brand) !important;
+  box-shadow: 0 0 0 4px rgba(75,14,163,0.16) !important;
+}
+.n-button--primary-type:active {
   background-color: var(--yw-brand-hover) !important;
   border-color: var(--yw-brand-hover) !important;
-  box-shadow: 0 0 0 4px rgba(75,14,163,0.16) !important;
 }
 /* Disabled primary keeps brand color but reduced opacity */
 .n-button--primary-type.n-button--disabled {
@@ -297,6 +304,15 @@ header.hl_header.--agency {
   background: var(--yw-white) !important;
   border-radius: var(--yw-r-lg) !important;
   box-shadow: var(--yw-shadow-sm) !important;
+}
+
+/* Company Settings page wrapper — inherit page bg, not white */
+.company-settings,
+#company-settings-page,
+#company-settings,
+.n-config-provider,
+.font-sans.hl-wrapper-container {
+  background: var(--yw-bg-page) !important;
 }
 
 /* ── Tables ──────────────────────────────────────────────── */
@@ -416,13 +432,13 @@ a:not(.n-button):not([class*="btn"]):not(#sidebar-v2 nav a):hover {
       // Specifically fix --n-color for primary buttons
       if (el.classList.contains('n-button--primary-type')) {
         s.setProperty('--n-color', BRAND, 'important');
-        s.setProperty('--n-color-hover', BRAND_HOVER, 'important');
-        s.setProperty('--n-color-pressed', BRAND, 'important');
-        s.setProperty('--n-color-focus', BRAND_HOVER, 'important');
+        s.setProperty('--n-color-hover', BRAND, 'important');
+        s.setProperty('--n-color-pressed', BRAND_HOVER, 'important');
+        s.setProperty('--n-color-focus', BRAND, 'important');
         s.setProperty('--n-color-disabled', BRAND, 'important');
         s.setProperty('--n-border', `1px solid ${BRAND}`, 'important');
-        s.setProperty('--n-border-hover', `1px solid ${BRAND_HOVER}`, 'important');
-        s.setProperty('--n-border-focus', `1px solid ${BRAND_HOVER}`, 'important');
+        s.setProperty('--n-border-hover', `1px solid ${BRAND}`, 'important');
+        s.setProperty('--n-border-focus', `1px solid ${BRAND}`, 'important');
         s.setProperty('--n-ripple-color', BRAND, 'important');
       }
 
