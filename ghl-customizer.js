@@ -99,7 +99,6 @@ nav.side-bar a.router-link-active, [class*="side-bar"] a.active,
 [class*="sidebar-logo"], [class*="sidebar-header"],
 [class*="sidebar-brand"], [class*="nav-logo"], [class*="logo-wrap"] {
   background: var(--yw-white) !important;
-  border-bottom: 1px solid var(--yw-border) !important;
 }
 [class*="sub-nav"], [class*="sub-menu"], [class*="submenu"] {
   background: var(--yw-bg-page) !important;
@@ -127,9 +126,8 @@ html body, #app, .hl-app, #main-content, .main-content,
 }
 
 /* CARDS */
-.n-card, .card, [class*="settings-section"], [class*="settings-card"],
-[class*="settings-panel"], [class*="form-section"],
-[class*="panel"], [class*="block"] {
+.n-card, [class*="settings-card"],
+[class*="settings-panel"], [class*="form-section"] {
   background: var(--yw-white) !important;
   border-radius: var(--yw-r-lg) !important;
   box-shadow: var(--yw-shadow-sm) !important;
@@ -277,6 +275,23 @@ tbody tr:hover td, .n-data-table-tr:hover .n-data-table-td {
 ::-webkit-scrollbar-thumb { background: var(--yw-border-2); border-radius: var(--yw-r-full); }
 ::-webkit-scrollbar-thumb:hover { background: var(--yw-brand); }
 ::selection { background: var(--yw-brand-tint); color: var(--yw-brand); }
+
+
+/* Prevent card styles bleeding onto GHL chrome elements */
+[class*="location-switcher"],
+[class*="sub-location"],
+[class*="go-back"],
+[class*="back-btn"],
+[class*="nav-back"],
+[class*="page-title"],
+[class*="page-header"],
+[class*="section-header"],
+[class*="content-header"] {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
 
 /* PAGINATION */
 .n-pagination-item--active { background: var(--yw-brand) !important; border-color: var(--yw-brand) !important; color: var(--yw-white) !important; border-radius: var(--yw-r) !important; }
