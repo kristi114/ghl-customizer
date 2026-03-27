@@ -20,7 +20,7 @@
   'use strict';
 
   const CONFIG_URL =
-    'https://cdn.jsdelivr.net/gh/nicopasion/ghl-customizer@main/agency-config.json';
+    'https://cdn.jsdelivr.net/gh/kristi114/ghl-customizer@main/agency-config.json';
 
   // ─── DESIGN TOKENS ───────────────────────────────────────────────────────────
   const TOKENS = {
