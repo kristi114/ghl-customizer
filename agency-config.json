@@ -1,0 +1,52 @@
+{
+  "agencyId": "yachtway",
+  "branding": {
+    "logoUrl": "https://cdn.jsdelivr.net/gh/nicopasion/ghl-customizer@main/yachtway-logo.png",
+    "faviconUrl": "https://cdn.jsdelivr.net/gh/nicopasion/ghl-customizer@main/yachtway-favicon.ico",
+    "primaryColor": "#4b0ea3",
+    "primaryColorHover": "#36076d",
+    "primaryColorLight": "#f3edfb",
+    "accentColor": "#6430b0",
+    "textDark": "#22222d",
+    "textMedium": "#575760",
+    "textLight": "#8c8c92",
+    "borderColor": "#dcdcde",
+    "bgPrimary": "#ffffff",
+    "bgSecondary": "#f9fafb",
+    "bgTertiary": "#f6f6f7",
+    "fontFamily": "'Figtree', 'Helvetica Neue', Arial, sans-serif",
+    "fontFamilyHeading": "'Poppins', 'Helvetica Neue', Arial, sans-serif",
+    "borderRadius": "8px",
+    "dashboardTitle": "YachtWay Partner Portal"
+  },
+  "headerButtons": [
+    { "label": "Conversations", "icon": "chat", "url": "/conversations" },
+    { "label": "Pipelines", "icon": "pipeline", "url": "/pipelines" },
+    { "label": "Calendar", "icon": "calendar", "url": "/calendar" },
+    { "label": "Support", "icon": "help", "url": "https://support.yachtway.com" }
+  ],
+  "userMenu": [
+    { "label": "Profile", "url": "/profile" },
+    { "label": "Partner Settings", "url": "/settings" },
+    { "label": "YachtWay.com", "url": "https://yachtway.com", "external": true }
+  ],
+  "dashboardCustomizer": {
+    "autoSave": { "isEnabled": true },
+    "saveButtonMove": { "isEnabled": true },
+    "additionalInfoSearch": { "isEnabled": true },
+    "opportunityCallButton": { "isEnabled": false },
+    "unreadCounter": { "isEnabled": true },
+    "collapsePipeline": { "isEnabled": true }
+  },
+  "widgets": [
+    { "name": "Tasks", "isVisible": true },
+    { "name": "Leads", "isVisible": true },
+    { "name": "Reports", "isVisible": true }
+  ],
+  "featureToggles": {
+    "showNotifications": true,
+    "enableSmartListFilters": true,
+    "embedGoogleMaps": false
+  },
+  "integrations": []
+}
